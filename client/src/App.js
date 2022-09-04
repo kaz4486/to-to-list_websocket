@@ -37,6 +37,7 @@ const App = () => {
 
   const addTask = (task) => {
     setTasks((tasks) => [...tasks, task]); // -uwaga
+    setTaskName('');
   };
 
   return (

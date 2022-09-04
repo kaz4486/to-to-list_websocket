@@ -16,16 +16,16 @@ let tasks = [
 ];
 
 io.on('connection', (socket) => {
-  console.log('New client' + socket.id);
+  console.log('New client', socket.id);
   socket.emit('updateData', tasks);
   console.log('wyemitowano', tasks);
   socket.on('addTask', (task) => {
-    console.log('New task from' + socket.id);
+    console.log('New task from', socket.id);
     tasks.push(task);
     socket.broadcast.emit('addTask', task);
   });
   socket.on('removeTask', (taskId) => {
-    console.log('Remove task by' + socket.id);
+    console.log('Remove task by', socket.id);
     tasks = tasks.filter((task) => taskId !== task.id);
     socket.broadcast.emit('removeTask', taskId);
   });
